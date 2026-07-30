@@ -3,299 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookshelf 📚 | Indicações de Literatura Japonesa</title>
+    <title>Paleta do Artista | Crie Sua Obra-Prima 🎨</title>
     <style>
-        /* Palette: Blue & White */
+        /* Estilo Artístico e Colorido */
         :root {
-            --primary-blue: #0d47a1;
-            --secondary-blue: #1976d2;
-            --light-blue: #e3f2fd;
-            --accent-blue: #00b0ff;
-            --white: #ffffff;
-            --dark-text: #0a192f;
+            --primary-purple: #6c5ce7;
+            --accent-pink: #fd79a8;
+            --accent-yellow: #ffeaa7;
+            --accent-blue: #0984e3;
+            --dark-bg: #2d3436;
+            --light-bg: #f8f9fa;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--light-blue);
-            color: var(--dark-text);
+            background-color: var(--light-bg);
+            color: #2d3436;
             line-height: 1.6;
         }
 
-        /* Header */
+        /* Hero Section com Degradê Artístico */
         header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            color: var(--white);
-            padding: 2.5rem 1rem;
+            background: linear-gradient(135deg, var(--primary-purple), var(--accent-pink), var(--accent-blue));
+            color: white;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.3);
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         header p {
-            font-style: italic;
-            opacity: 0.9;
+            font-size: 1.2rem;
+            font-weight: 300;
         }
 
-        .badge-pop {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: var(--white);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 0.8rem;
-        }
-
-        /* Main Container */
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
 
-        .section-title {
-            color: var(--primary-blue);
-            border-bottom: 3px solid var(--secondary-blue);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+        /* Seção Principal do Produto */
+        .product-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 3px solid var(--accent-yellow);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .product-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .product-details h2 {
+            color: var(--primary-purple);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: #e17055;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        /* Argumentos de Compra / Benefícios */
+        .benefits-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1.05rem;
         }
 
-        /* Grid de Livros */
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .book-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 2px solid #bbdefb;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .book-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(25, 118, 210, 0.2);
-            border-color: var(--secondary-blue);
-        }
-
-        .book-title {
-            color: var(--primary-blue);
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .book-author {
-            color: #555;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .book-review {
-            font-size: 0.95rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            align-self: flex-start;
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-            padding: 0.2rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        /* Form Section */
-        .form-section {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--secondary-blue);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
+        .buy-btn {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: var(--primary-blue);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #90caf9;
-            border-radius: 8px;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 5px rgba(13, 71, 161, 0.3);
-        }
-
-        button {
-            background-color: var(--primary-blue);
-            color: var(--white);
+            background: linear-gradient(45deg, #00b894, #00cec9);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
             border: none;
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background-color 0.2s;
-            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
         }
 
-        button:hover {
-            background-color: var(--secondary-blue);
+        .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.6);
         }
 
-        /* Footer */
+        /* Seção sobre Utilidade */
+        .utility-section {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 2.5rem;
+            border-radius: 20px;
+        }
+
+        .utility-section h3 {
+            color: #d63031;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .utility-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .utility-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rodapé */
         footer {
             text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            margin-top: 3rem;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent-blue);
-            text-decoration: none;
+            padding: 2rem;
+            background-color: var(--dark-bg);
+            color: white;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Bookshelf 🌊</h1>
-        <p>O seu portal de literatura japonesa — Do site para a sua estante!</p>
-        <span class="badge-pop">⚡ Site perfeito para fãs da cultura GEEK</span>
+        <h1>Ateliê das Cores 🖌️</h1>
+        <p>A ferramenta perfeita para dar vida à sua imaginação</p>
     </header>
 
     <div class="container">
 
-        <h2 class="section-title">📖 Recomendados da Semana</h2>
-        
-        <div class="books-grid">
-            
-            <div class="book-card">
-                <div>
-                    <h3 class="book-title">Antes que o Café Esfrie</h3>
-                    <p class="book-author">✍️ Toshikazu Kawaguchi</p>
-                    <p class="book-review">
-                        Em um pequeno café em Tóquio, existe uma cadeira que te leva de volta ao passado... mas só até o café esfriar! Uma leitura emocionante e cheia de sensibilidade.
-                    </p>
-                </div>
-                <span class="tag">☕ Realismo Fantástico</span>
+        <section class="product-showcase">
+            <div class="product-image">
+                <img src="http://googleusercontent.com/image_generation_content/0" alt="Paleta de Tintas de Madeira Usada com Materiais de Arte">
             </div>
 
-            <div class="book-card">
-                <div>
-                    <h3 class="book-title">Kafka à Beira-Mar</h3>
-                    <p class="book-author">✍️ Haruki Murakami</p>
-                    <p class="book-review">
-                        Gatos falantes, chuva de peixes e uma jornada surrealista. Murakami entrega uma atmosfera digna de um filme do Studio Ghibli misturado com mistério urbano.
-                    </p>
-                </div>
-                <span class="tag">🐱 Bizarro & Fascinante</span>
+            <div class="product-details">
+                <h2>Paleta de Madeira Clássica para Pintura</h2>
+                <p>Projetada para artistas que buscam ergonomia, durabilidade e uma experiência autêntica de criação.</p>
+                
+                <div class="price-tag">R$ 89,90</div>
+
+                <h3>Por que você precisa desta paleta?</h3>
+                <ul class="benefits-list">
+                    <li>🎨 <b>Mistura Perfeita:</b> Superfície de madeira tratada para blend impecável de tintas óleo e acrílica.</li>
+                    <li>✋ <b>Ergonomia Superior:</b> Encaixe de polegar anatômico para horas de pintura sem cansaço.</li>
+                    <li>🖌️ <b>Tradição & Resistência:</b> Material durável que ganha personalidade a cada obra criada.</li>
+                    <li>✨ <b>Amplo Espaço:</b> Área generosa para organizar sua escala cromática com facilidade.</li>
+                </ul>
+
+                <button class="buy-btn" onclick="alert('Produto adicionado ao carrinho com sucesso!')">🛍️ Comprar Agora</button>
             </div>
+        </section>
 
-            <div class="book-card">
-                <div>
-                    <h3 class="book-title">Querida Konbini</h3>
-                    <p class="book-author">✍️ Sayaka Murata</p>
-                    <p class="book-review">
-                        Uma visão única sobre se encaixar na sociedade através da rotina de uma funcionária de loja de conveniência. Rápido, divertido e super reflexivo!
-                    </p>
+        <section class="utility-section">
+            <h3>💡 Utilidade & Versatilidade no Estúdio</h3>
+            <p>Mais do que um simples acessório, a paleta é a extensão das mãos do artista. Confira como ela otimiza seu processo criativo:</p>
+
+            <div class="utility-grid">
+                <div class="utility-card">
+                    <h4>Controle de Tonalidades</h4>
+                    <p>Permite visualizar a exata harmonia de cores e saturação antes de aplicar a tinta na tela.</p>
                 </div>
-                <span class="tag">🏪 Vida Cotidiana</span>
+                <div class="utility-card">
+                    <h4>Agilidade na Pintura</h4>
+                    <p>Mantenha todas as cores primárias e secundárias ao alcance das mãos sem interromper o fluxo criativo.</p>
+                </div>
+                <div class="utility-card">
+                    <h4>Compatibilidade Multimaterial</h4>
+                    <p>Ideal para tinta a óleo, acrílica, guache e técnicas mistas de pintura em tela ou madeira.</p>
+                </div>
             </div>
-
-        </div>
-
-        <section class="form-section">
-            <h2 class="section-title">✉️ Faça sua Recomendação</h2>
-            <p style="margin-bottom: 1.5rem; color: #555;">
-                Leu um livro incrível e quer compartilhar com a comunidade? Preencha os campos abaixo e ajude nosso acervo a crescer!
-            </p>
-
-            <form action="#" method="POST" onsubmit="alert('Arigatou! Sua indicação foi enviada com sucesso!'); return false;">
-                <div class="form-group">
-                    <label for="userName">Seu Nome / Nickname:</label>
-                    <input type="text" id="userName" placeholder="Ex: mychemicalkitty" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="bookTitle">Título do Livro:</label>
-                    <input type="text" id="bookTitle" placeholder="Ex: O Declínio de um Homem" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="author">Autor(a):</label>
-                    <input type="text" id="author" placeholder="Ex: Osamu Dazai" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="vibe">Vibe do Livro:</label>
-                    <select id="vibe">
-                        <option value="conforto">Aconchegante (Slice of Life)</option>
-                        <option value="mysterio">Mistério / Thriller</option>
-                        <option value="fantasia">Fantasia & Magia</option>
-                        <option value="drama">Drama de Partir o Coração</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="review">Sua Resenha Curta (Sem spoilers!):</label>
-                    <textarea id="review" rows="4" placeholder="Conte em poucas palavras por que esse livro vale a pena..." required></textarea>
-                </div>
-
-                <button type="submit">🚀 Enviar Recomendação</button>
-            </form>
         </section>
 
     </div>
 
     <footer>
-        <p>Feito com 💙 para fãs de literatura e cultura pop japonesa. | <i>"Nani?!"</i> — © 2026 Bookshelf</p>
+        <p>© 2026 Ateliê das Cores. Todos os direitos reservados. | Arte & Inspiração</p>
     </footer>
 
 </body>
