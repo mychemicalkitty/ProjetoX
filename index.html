@@ -1,12 +1,244 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Estante Tropical - Livros Brasileiros</title>
+    <style>
+        /* Estilos Globais e Cores Vibrantes */
+        :root {
+            --rosa-choque: #ff007f;
+            --amarelo-sol: #ffea00;
+            --azul-caneta: #00d2ff;
+            --verde-lima: #76ff03;
+            --roxo-vibra: #9d00ff;
+            --fundo-escuro: #121214;
+            --texto-claro: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fundo-escuro);
+            color: var(--texto-claro);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(45deg, var(--rosa-choque), var(--roxo-vibra), var(--azul-caneta));
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            color: var(--amarelo-sol);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Layout Principal */
+        container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: block;
+        }
+
+        h2 {
+            color: var(--verde-lima);
+            border-bottom: 3px solid var(--rosa-choque);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-top: 2rem;
+        }
+
+        /* Grid de Livros (Cards) */
+        .grid-livros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card-livro {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--azul-caneta);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-livro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--rosa-choque);
+            border-color: var(--amarelo-sol);
+        }
+
+        .card-livro h3 {
+            color: var(--amarelo-sol);
+            margin-top: 0;
+        }
+
+        .autor {
+            color: var(--azul-caneta);
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .tag {
+            background-color: var(--rosa-choque);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Formulário de Indicação */
+        .secao-formulario {
+            background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(0, 210, 255, 0.2));
+            border: 2px dashed var(--verde-lima);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--amarelo-sol);
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 8px;
+            border: 2px solid var(--azul-caneta);
+            background-color: #1e1e24;
+            color: white;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--rosa-choque);
+            box-shadow: 0 0 10px var(--rosa-choque);
+        }
+
+        button {
+            background: linear-gradient(45deg, var(--verde-lima), var(--azul-caneta));
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            background: linear-gradient(45deg, var(--amarelo-sol), var(--rosa-choque));
+            color: white;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #0a0a0c;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
- <H1>Projeto XSEBRAE</H1>   
- <p>O Sebrae (Serviço Brasileiro de Apoio às Micro e Pequenas Empresas) é uma entidade privada sem fins lucrativos que ajuda a criar, melhorar e fazer crescer pequenos negócios no Brasil. Criado em 5 de julho de 1972, ele faz parte do chamado "Sistema S" e oferece orientações e cursos para quem quer empreender.</p>
+
+    <header>
+        <h1>📚 Estante Tropical</h1>
+        <p>O melhor da literatura brasileira com muita cor e paixão!</p>
+    </header>
+
+    <container>
+        <h2>✨ Recomendações em Destaque</h2>
+        
+        <div class="grid-livros">
+            
+            <div class="card-livro">
+                <span class="tag">Clássico</span>
+                <h3>Memórias Póstumas de Brás Cubas</h3>
+                <p class="autor">Por Machado de Assis</p>
+                <p><strong>Resenha:</strong> Um defunto autor narra sua própria vida com um humor ácido e genial. É uma crítica social brilhante e super moderna sobre a hipocrisia humana.</p>
+            </div>
+
+            <div class="card-livro">
+                <span class="tag">Contemporâneo</span>
+                <h3>Tudo É Rio</h3>
+                <p class="autor">Por Carla Madeira</p>
+                <p><strong>Resenha:</strong> Uma narrativa intensa e poética sobre amor, perda, ciúme e perdão. A escrita te puxa como uma correnteza e não dá vontade de parar!</p>
+            </div>
+
+            <div class="card-livro">
+                <span class="tag">Drama / Poesia</span>
+                <h3>A Hora da Estrela</h3>
+                <p class="autor">Por Clarice Lispector</p>
+                <p><strong>Resenha:</strong> A tocante história de Macabéa, uma datilógrafa alagoana no Rio de Janeiro. Uma leitura rápida, profunda e marcante sobre a invisibilidade social.</p>
+            </div>
+
+            <div class="card-livro">
+                <span class="tag">Premiado</span>
+                <h3>Torto Arado</h3>
+                <p class="autor">Por Itamar Vieira Junior</p>
+                <p><strong>Resenha:</strong> Uma história poderosa no sertão baiano sobre duas irmãs ligadas por um acidente. Fala sobre terra, ancestralidade, luta e afeto.</p>
+            </div>
+
+        </div>
+
+        <div class="secao-formulario">
+            <h2>✍️ Faça sua Recomendação!</h2>
+            <p>Leu um livro brasileiro incrível e quer indicar? Deixe sua resenha abaixo:</p>
+            
+            <form onsubmit="alert('Obrigado pela indicação! 📖✨'); return false;">
+                <div class="form-group">
+                    <label for="titulo">Título do Livro:</label>
+                    <input type="text" id="titulo" placeholder="Ex: Capitães da Areia" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="autor">Nome do(a) Autor(a):</label>
+                    <input type="text" id="autor" placeholder="Ex: Jorge Amado" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="resenha">Sua Resenha Curta:</label>
+                    <textarea id="resenha" rows="4" placeholder="Escreva em poucas palavras o que achou do livro..." required></textarea>
+                </div>
+
+                <button type="submit">Enviar Indicação 🚀</button>
+            </form>
+        </div>
+    </container>
+
+    <footer>
+        <p>Criado com 💚 e 💛 para valorizar a literatura nacional.</p>
+    </footer>
+
 </body>
 </html>
