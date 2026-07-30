@@ -3,241 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estante Tropical - Livros Brasileiros</title>
+    <title>Bookshelf 📚 | Indicações de Literatura Japonesa</title>
     <style>
-        /* Estilos Globais e Cores Vibrantes */
+        /* Palette: Blue & White */
         :root {
-            --rosa-choque: #ff007f;
-            --amarelo-sol: #ffea00;
-            --azul-caneta: #00d2ff;
-            --verde-lima: #76ff03;
-            --roxo-vibra: #9d00ff;
-            --fundo-escuro: #121214;
-            --texto-claro: #ffffff;
+            --primary-blue: #0d47a1;
+            --secondary-blue: #1976d2;
+            --light-blue: #e3f2fd;
+            --accent-blue: #00b0ff;
+            --white: #ffffff;
+            --dark-text: #0a192f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--fundo-escuro);
-            color: var(--texto-claro);
-            margin: 0;
-            padding: 0;
+            background-color: var(--light-blue);
+            color: var(--dark-text);
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
+        /* Header */
         header {
-            background: linear-gradient(45deg, var(--rosa-choque), var(--roxo-vibra), var(--azul-caneta));
-            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            padding: 2.5rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.3);
         }
 
         header h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-            color: var(--amarelo-sol);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
         }
 
         header p {
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-style: italic;
+            opacity: 0.9;
         }
 
-        /* Layout Principal */
-        container {
-            max-width: 1100px;
+        .badge-pop {
+            display: inline-block;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 0.8rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
             margin: 2rem auto;
             padding: 0 1rem;
-            display: block;
         }
 
-        h2 {
-            color: var(--verde-lima);
-            border-bottom: 3px solid var(--rosa-choque);
-            display: inline-block;
-            padding-bottom: 5px;
-            margin-top: 2rem;
+        .section-title {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--secondary-blue);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Grid de Livros (Cards) */
-        .grid-livros {
+        /* Grid de Livros */
+        .books-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .card-livro {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--azul-caneta);
-            border-radius: 15px;
+        .book-card {
+            background: var(--white);
+            border-radius: 12px;
             padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #bbdefb;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .card-livro:hover {
+        .book-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--rosa-choque);
-            border-color: var(--amarelo-sol);
+            box-shadow: 0 8px 15px rgba(25, 118, 210, 0.2);
+            border-color: var(--secondary-blue);
         }
 
-        .card-livro h3 {
-            color: var(--amarelo-sol);
-            margin-top: 0;
+        .book-title {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
         }
 
-        .autor {
-            color: var(--azul-caneta);
-            font-weight: bold;
-            font-style: italic;
+        .book-author {
+            color: #555;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .book-review {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 1rem;
         }
 
         .tag {
-            background-color: var(--rosa-choque);
-            color: white;
-            padding: 3px 8px;
-            border-radius: 5px;
+            align-self: flex-start;
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
             font-size: 0.8rem;
             font-weight: bold;
         }
 
-        /* Formulário de Indicação */
-        .secao-formulario {
-            background: linear-gradient(135deg, rgba(157, 0, 255, 0.2), rgba(0, 210, 255, 0.2));
-            border: 2px dashed var(--verde-lima);
-            border-radius: 15px;
+        /* Form Section */
+        .form-section {
+            background: var(--white);
             padding: 2rem;
-            margin-top: 3rem;
+            border-radius: 12px;
+            border: 2px solid var(--secondary-blue);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .form-group {
             margin-bottom: 1.2rem;
         }
 
-        label {
+        .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--amarelo-sol);
             font-weight: bold;
+            color: var(--primary-blue);
         }
 
-        input[type="text"], textarea {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.8rem;
+            border: 1px solid #90caf9;
             border-radius: 8px;
-            border: 2px solid var(--azul-caneta);
-            background-color: #1e1e24;
-            color: white;
-            box-sizing: border-box;
             font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
         }
 
-        input[type="text"]:focus, textarea:focus {
-            outline: none;
-            border-color: var(--rosa-choque);
-            box-shadow: 0 0 10px var(--rosa-choque);
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 5px rgba(13, 71, 161, 0.3);
         }
 
         button {
-            background: linear-gradient(45deg, var(--verde-lima), var(--azul-caneta));
-            color: #000;
+            background-color: var(--primary-blue);
+            color: var(--white);
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
             font-weight: bold;
-            border-radius: 25px;
+            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.2s;
             width: 100%;
-            transition: transform 0.2s;
         }
 
         button:hover {
-            transform: scale(1.02);
-            background: linear-gradient(45deg, var(--amarelo-sol), var(--rosa-choque));
-            color: white;
+            background-color: var(--secondary-blue);
         }
 
-        /* Rodapé */
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
+            background-color: var(--primary-blue);
+            color: var(--white);
             margin-top: 3rem;
-            background-color: #0a0a0c;
-            color: #888;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>📚 Estante Tropical</h1>
-        <p>O melhor da literatura brasileira com muita cor e paixão!</p>
+        <h1>Bookshelf 🌊</h1>
+        <p>O seu portal de literatura japonesa — Do aconchego de Akihabara para a sua estante!</p>
+        <span class="badge-pop">⚡ Aprovado pelo Totoro & Recomendado para Otakus</span>
     </header>
 
-    <container>
-        <h2>✨ Recomendações em Destaque</h2>
+    <div class="container">
+
+        <h2 class="section-title">📖 Recomendados da Semana</h2>
         
-        <div class="grid-livros">
+        <div class="books-grid">
             
-            <div class="card-livro">
-                <span class="tag">Clássico</span>
-                <h3>Memórias Póstumas de Brás Cubas</h3>
-                <p class="autor">Por Machado de Assis</p>
-                <p><strong>Resenha:</strong> Um defunto autor narra sua própria vida com um humor ácido e genial. É uma crítica social brilhante e super moderna sobre a hipocrisia humana.</p>
+            <div class="book-card">
+                <div>
+                    <h3 class="book-title">Antes que o Café Esfrie</h3>
+                    <p class="book-author">✍️ Toshikazu Kawaguchi</p>
+                    <p class="book-review">
+                        Em um pequeno café em Tóquio, existe uma cadeira que te leva de volta ao passado... mas só até o café esfriar! Uma leitura emocionante e cheia de sensibilidade.
+                    </p>
+                </div>
+                <span class="tag">☕ Realismo Fantástico</span>
             </div>
 
-            <div class="card-livro">
-                <span class="tag">Contemporâneo</span>
-                <h3>Tudo É Rio</h3>
-                <p class="autor">Por Carla Madeira</p>
-                <p><strong>Resenha:</strong> Uma narrativa intensa e poética sobre amor, perda, ciúme e perdão. A escrita te puxa como uma correnteza e não dá vontade de parar!</p>
+            <div class="book-card">
+                <div>
+                    <h3 class="book-title">Kafka à Beira-Mar</h3>
+                    <p class="book-author">✍️ Haruki Murakami</p>
+                    <p class="book-review">
+                        Gatos falantes, chuva de peixes e uma jornada surrealista. Murakami entrega uma atmosfera digna de um filme do Studio Ghibli misturado com mistério urbano.
+                    </p>
+                </div>
+                <span class="tag">🐱 Bizarro & Fascinante</span>
             </div>
 
-            <div class="card-livro">
-                <span class="tag">Drama / Poesia</span>
-                <h3>A Hora da Estrela</h3>
-                <p class="autor">Por Clarice Lispector</p>
-                <p><strong>Resenha:</strong> A tocante história de Macabéa, uma datilógrafa alagoana no Rio de Janeiro. Uma leitura rápida, profunda e marcante sobre a invisibilidade social.</p>
-            </div>
-
-            <div class="card-livro">
-                <span class="tag">Premiado</span>
-                <h3>Torto Arado</h3>
-                <p class="autor">Por Itamar Vieira Junior</p>
-                <p><strong>Resenha:</strong> Uma história poderosa no sertão baiano sobre duas irmãs ligadas por um acidente. Fala sobre terra, ancestralidade, luta e afeto.</p>
+            <div class="book-card">
+                <div>
+                    <h3 class="book-title">Querida Konbini</h3>
+                    <p class="book-author">✍️ Sayaka Murata</p>
+                    <p class="book-review">
+                        Uma visão única sobre se encaixar na sociedade através da rotina de uma funcionária de loja de conveniência. Rápido, divertido e super reflexivo!
+                    </p>
+                </div>
+                <span class="tag">🏪 Vida Cotidiana</span>
             </div>
 
         </div>
 
-        <div class="secao-formulario">
-            <h2>✍️ Faça sua Recomendação!</h2>
-            <p>Leu um livro brasileiro incrível e quer indicar? Deixe sua resenha abaixo:</p>
-            
-            <form onsubmit="alert('Obrigado pela indicação! 📖✨'); return false;">
+        <section class="form-section">
+            <h2 class="section-title">✉️ Faça sua Recomendação (Envie seu Jutsu Literário)</h2>
+            <p style="margin-bottom: 1.5rem; color: #555;">
+                Leu um livro incrível e quer compartilhar com a comunidade? Preencha os campos abaixo e ajude nosso acervo a crescer!
+            </p>
+
+            <form action="#" method="POST" onsubmit="alert('Arigatou! Sua indicação foi enviada com sucesso!'); return false;">
                 <div class="form-group">
-                    <label for="titulo">Título do Livro:</label>
-                    <input type="text" id="titulo" placeholder="Ex: Capitães da Areia" required>
+                    <label for="userName">Seu Nome / Nickname Otaku:</label>
+                    <input type="text" id="userName" placeholder="Ex: Senpai_dos_Livros" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="autor">Nome do(a) Autor(a):</label>
-                    <input type="text" id="autor" placeholder="Ex: Jorge Amado" required>
+                    <label for="bookTitle">Título do Livro:</label>
+                    <input type="text" id="bookTitle" placeholder="Ex: O Declínio de um Homem" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="resenha">Sua Resenha Curta:</label>
-                    <textarea id="resenha" rows="4" placeholder="Escreva em poucas palavras o que achou do livro..." required></textarea>
+                    <label for="author">Autor(a):</label>
+                    <input type="text" id="author" placeholder="Ex: Osamu Dazai" required>
                 </div>
 
-                <button type="submit">Enviar Indicação 🚀</button>
+                <div class="form-group">
+                    <label for="vibe">Vibe do Livro:</label>
+                    <select id="vibe">
+                        <option value="conforto">Aconchegante (Slice of Life)</option>
+                        <option value="mysterio">Mistério / Thriller</option>
+                        <option value="fantasia">Fantasia & Magia</option>
+                        <option value="drama">Drama de Partir o Coração</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="review">Sua Resenha Curta (Sem spoilers!):</label>
+                    <textarea id="review" rows="4" placeholder="Conte em poucas palavras por que esse livro vale a pena..." required></textarea>
+                </div>
+
+                <button type="submit">🚀 Enviar Recomendação</button>
             </form>
-        </div>
-    </container>
+        </section>
+
+    </div>
 
     <footer>
-        <p>Criado com 💚 e 💛 para valorizar a literatura nacional.</p>
+        <p>Feito com 💙 para fãs de literatura e cultura pop japonesa. | <i>"Nani?!"</i> — © 2026 Bookshelf</p>
     </footer>
 
 </body>
